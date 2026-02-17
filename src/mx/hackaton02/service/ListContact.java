@@ -12,11 +12,7 @@ public class ListContact {
 
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : agenda.getAll().entrySet()) {
-            sb.append("Nombre: ")
-                    .append(entry.getKey())
-                    .append(" | Número: ")
-                    .append(entry.getValue())
-                    .append("\n");
+            sb.append(String.format("Nombre: %-12s | Número: %-10s \n", entry.getKey(), entry.getValue()));
         }
         return sb.toString();
     }
