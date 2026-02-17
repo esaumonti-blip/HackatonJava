@@ -2,18 +2,27 @@ package mx.hackaton02.ui;
 
 import mx.hackaton02.model.Agenda;
 import mx.hackaton02.service.*;
+import mx.hackaton02.ui.WelcomeScreen;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class ContactManagerUI extends JFrame {
 
-    private Agenda agenda = new Agenda(10);
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            // Iniciamos con la pantalla de bienvenida
+            new WelcomeScreen().setVisible(true);
+        });
+    }
 
+
+    private Agenda agenda;
     private JTextField nameField, numberField;
     private static JTextArea display;
 
-    public ContactManagerUI() {
+    public ContactManagerUI(int size) {
+        this.agenda = new Agenda(size);
         setTitle("Agenda de Contactos");
         setSize(500, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -64,8 +73,7 @@ public class ContactManagerUI extends JFrame {
     public static void displayText(String message){
         display.setText(message);
     }
-
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new ContactManagerUI().setVisible(true));
-    }
+    } */
 }
