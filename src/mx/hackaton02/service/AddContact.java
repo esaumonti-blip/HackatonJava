@@ -20,6 +20,12 @@ public class AddContact {
             return;
         }
 
+        if(number == null || !number.matches("\\d{10}")) {
+            JOptionPane.showMessageDialog(null,
+                    "Número de teléfono inválido. Solamente debe contener 10 números");
+            return;
+        }
+
         agenda.add(name, number);
         JOptionPane.showMessageDialog(null, "Contacto agregado correctamente.");
         String message = """

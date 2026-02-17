@@ -38,6 +38,7 @@ public class ContactManagerUI extends JFrame {
         add(top, BorderLayout.NORTH);
 
         display = new JTextArea();
+        display.setFont(new Font("Monospaced", Font.PLAIN, 12));
         add(new JScrollPane(display), BorderLayout.CENTER);
 
         JPanel buttons = new JPanel();
@@ -73,7 +74,4 @@ public class ContactManagerUI extends JFrame {
     public static void displayText(String message){
         display.setText(message);
     }
-   /* public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new ContactManagerUI().setVisible(true));
-    } */
 }
