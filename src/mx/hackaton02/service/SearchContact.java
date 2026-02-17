@@ -10,5 +10,6 @@ public class SearchContact {
                     "\nNúmero: " + agenda.get(name);
         }
         return "Contacto no encontrado.";
+
     }
 }

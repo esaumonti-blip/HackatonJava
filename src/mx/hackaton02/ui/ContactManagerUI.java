@@ -48,20 +48,40 @@ public class ContactManagerUI extends JFrame {
         SearchContact searchService = new SearchContact();
         DeleteContact deleteService = new DeleteContact();
 
-        add.addActionListener(e ->
-                addService.addContact(agenda, nameField.getText(), numberField.getText()));
+        add.addActionListener(e -> {
+                addService.addContact(agenda, nameField.getText(), numberField.getText());
+                clearNameField();
+                clearNumberField();
+        });
 
-        list.addActionListener(e ->
-                display.setText(listService.listContacts(agenda)));
+        list.addActionListener(e -> {
+                display.setText(listService.listContacts(agenda));
+                clearNameField();
+                clearNumberField();
+        });
 
-        search.addActionListener(e ->
-                display.setText(searchService.search(agenda, nameField.getText())));
+        search.addActionListener(e -> {
+                display.setText(searchService.search(agenda, nameField.getText()));
+                clearNameField();
+                clearNumberField();
+        });
 
-        delete.addActionListener(e ->
-                deleteService.delete(agenda, nameField.getText()));
+        delete.addActionListener(e -> {
+                deleteService.delete(agenda, nameField.getText());
+                clearNameField();
+                clearNumberField();
+        });
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new ContactManagerUI().setVisible(true));
+    }
+
+    private void clearNameField(){
+        numberField.setText("");
+    }
+
+    private void clearNumberField(){
+        nameField.setText("");
     }
 }
