@@ -26,6 +26,7 @@ public class ContactManagerUI extends JFrame {
         setTitle("Agenda de Contactos");
         setSize(500, 400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
         JPanel top = new JPanel();
@@ -77,6 +78,7 @@ public class ContactManagerUI extends JFrame {
                 display.setText(searchService.search(agenda, nameField.getText()));
                 clearNameField();
                 clearNumberField();
+                status.setText(Capacity.remaining(agenda,size));
 
         });
 
