@@ -85,6 +85,7 @@ public class ContactManagerUI extends JFrame {
                 clearNameField();
                 clearNumberField();
                 status.setText(Capacity.remaining(agenda,size));
+                display.setText(listService.listContacts(agenda));
         });
     }
 
