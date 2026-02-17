@@ -4,7 +4,7 @@ import mx.hackaton02.model.Agenda;
 
 public class Capacity {
 
-    public String remaining(Agenda agenda) {
-        return "Espacios disponibles: " + agenda.remainingSpaces();
+    public static String remaining(Agenda agenda, int size) {
+        return "Contactos: " + agenda.remainingSpaces()+"/"+size;
     }
 }
