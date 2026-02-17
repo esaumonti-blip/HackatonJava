@@ -39,7 +39,7 @@ public class Agenda {
     }
 
     public int remainingSpaces() {
-        return LIMIT - contacts.size();
+        return contacts.size();
     }
 
     public Map<String, String> getAll() {

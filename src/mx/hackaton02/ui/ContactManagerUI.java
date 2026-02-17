@@ -42,11 +42,13 @@ public class ContactManagerUI extends JFrame {
         add(new JScrollPane(display), BorderLayout.CENTER);
 
         JPanel buttons = new JPanel();
+        JLabel status = new JLabel(Capacity.remaining(agenda,size));
         JButton add = new JButton("Agregar");
         JButton list = new JButton("Listar");
         JButton search = new JButton("Buscar");
         JButton delete = new JButton("Eliminar");
 
+        buttons.add(status);
         buttons.add(add);
         buttons.add(list);
         buttons.add(search);
@@ -62,6 +64,7 @@ public class ContactManagerUI extends JFrame {
                 addService.addContact(agenda, nameField.getText(), numberField.getText());
                 clearNameField();
                 clearNumberField();
+                status.setText(Capacity.remaining(agenda,size));
         });
 
         list.addActionListener(e -> {
@@ -74,12 +77,14 @@ public class ContactManagerUI extends JFrame {
                 display.setText(searchService.search(agenda, nameField.getText()));
                 clearNameField();
                 clearNumberField();
+
         });
 
         delete.addActionListener(e -> {
                 deleteService.delete(agenda, nameField.getText());
                 clearNameField();
                 clearNumberField();
+                status.setText(Capacity.remaining(agenda,size));
         });
     }
 
