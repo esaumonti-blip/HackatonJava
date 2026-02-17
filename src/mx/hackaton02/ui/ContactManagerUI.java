@@ -11,7 +11,7 @@ public class ContactManagerUI extends JFrame {
     private Agenda agenda = new Agenda(10);
 
     private JTextField nameField, numberField;
-    private JTextArea display;
+    private static JTextArea display;
 
     public ContactManagerUI() {
         setTitle("Agenda de Contactos");
@@ -59,6 +59,10 @@ public class ContactManagerUI extends JFrame {
 
         delete.addActionListener(e ->
                 deleteService.delete(agenda, nameField.getText()));
+    }
+
+    public static void displayText(String message){
+        display.setText(message);
     }
 
     public static void main(String[] args) {
