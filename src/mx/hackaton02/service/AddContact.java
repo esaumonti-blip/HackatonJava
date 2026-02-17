@@ -1,6 +1,8 @@
 package mx.hackaton02.service;
 
 import mx.hackaton02.model.Agenda;
+import mx.hackaton02.ui.ContactManagerUI;
+
 import javax.swing.*;
 
 public class AddContact {
@@ -20,5 +22,11 @@ public class AddContact {
 
         agenda.add(name, number);
         JOptionPane.showMessageDialog(null, "Contacto agregado correctamente.");
+        String message = """
+                Se agregó el siguiente contacto de manera satisfactoria:
+                Nombre: %s
+                Número: %s
+                """.formatted(name, number);
+        ContactManagerUI.displayText(message);
     }
 }
